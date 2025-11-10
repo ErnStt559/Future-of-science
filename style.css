@@ -1,0 +1,335 @@
+/* === Обнуление и базовые стили === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.7;
+  color: #e8e6e3;
+  background: #0f0f12;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(30, 144, 255, 0.08) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(0, 191, 165, 0.08) 0%, transparent 30%);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* === Контейнер === */
+.article {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(20, 20, 25, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* === Заголовки === */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00d4aa, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem;
+  color: #00d4aa;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #00d4aa;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0, 212, 170, 0.6);
+}
+
+/* === Текст === */
+p {
+  margin-bottom: 1.2rem;
+  color: #d0d0d0;
+  font-weight: 400;
+}
+
+p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+p em {
+  color: #a0f7e0;
+  font-style: italic;
+}
+
+/* === Изображения (адаптивные) === */
+img {
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease;
+}
+
+img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+}
+
+/* === Цитаты === */
+blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 212, 170, 0.08);
+  border-left: 4px solid #00d4aa;
+  border-radius: 0.8rem;
+  font-style: italic;
+  color: #c0ffeb;
+  position: relative;
+  font-weight: 500;
+}
+
+blockquote::before {
+  content: '“';
+  font-size: 4rem;
+  color: #00d4aa;
+  position: absolute;
+  left: 0.5rem;
+  top: -0.5rem;
+  opacity: 0.3;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #88f7d0;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* === Списки === */
+ul, ol {
+  margin: 1.5rem 0;
+  padding-left: 1.8rem;
+}
+
+li {
+  margin-bottom: 0.7rem;
+  position: relative;
+  color: #e0e0e0;
+}
+
+ul li::marker {
+  color: #00d4aa;
+}
+
+ol {
+  counter-reset: list-counter;
+}
+
+ol li {
+  counter-increment: list-counter;
+}
+
+ol li::before {
+  content: counter(list-counter) ".";
+  color: #00d4aa;
+  font-weight: bold;
+  position: absolute;
+  left: -1.8rem;
+  width: 1.8rem;
+  text-align: right;
+}
+
+/* === Таблицы === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  background: rgba(15, 15, 20, 0.6);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+th {
+  background: rgba(0, 212, 170, 0.15);
+  color: #00d4aa;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+td {
+  color: #e0e0e0;
+}
+
+tr:hover td {
+  background: rgba(0, 212, 170, 0.05);
+  transition: background 0.2s ease;
+}
+
+/* === Горизонтальная линия === */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 212, 170, 0.3), transparent);
+  margin: 3rem 0;
+}
+
+/* === Блок "Next articles" === */
+.next-article {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px dashed rgba(0, 212, 170, 0.3);
+}
+
+.next-article h2 {
+  font-size: 1.5rem;
+  color: #88f7d0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.next-article ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.next-article li {
+  margin: 0;
+}
+
+.next-article a {
+  display: block;
+  padding: 1rem 1.2rem;
+  background: rgba(30, 35, 40, 0.6);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+  border-radius: 0.8rem;
+  color: #d0f7e8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.next-article a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.next-article a:hover {
+  background: rgba(0, 212, 170, 0.12);
+  border-color: #00d4aa;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 212, 170, 0.15);
+}
+
+.next-article a:hover::before {
+  left: 100%;
+}
+
+/* === Адаптивность === */
+@media (max-width: 1024px) {
+  img {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .article {
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  img {
+    width: 70%;
+  }
+
+  .next-article ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .article {
+    padding: 1.5rem;
+  }
+
+  blockquote {
+    padding: 1.2rem 1.5rem;
+  }
+
+  img {
+    width: 90%;
+  }
+}
+
+/* === Плавные анимации === */
+* {
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
