@@ -10,11 +10,24 @@
 <title>Glowing Plants: The Living Energy of the Future</title>
 <link href="style.css" rel="stylesheet"/>
 <!-- OneSignal Push Notifications -->
-<script async="" src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
-<script> window.OneSignal = window.OneSignal || []; OneSignal.push(function() { OneSignal.init({ appId: "dd1c388d-b9e8-41b3-b904-e811dbcfae4c", // ← ТВОЙ APP ID serviceWorkerParam: { scope: '/' }, serviceWorkerPath: 'OneSignalSDKWorker.js' }); });
-</script>
-<script async="" src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
-<script> window.OneSignal = window.OneSignal || []; OneSignal.push(function() { OneSignal.init({ appId: "dd1c388d-b9e8-41b3-b904-e811dbcfae4c", notifyButton: { enable: true, position: "bottom-right", size: "medium", theme: "default", showCredit: false, text: { 'tip.state.unsubscribed': 'Subscribe to notifications', 'tip.state.subscribed': 'You’re subscribed', 'message.action.subscribed': 'Thank you! Notifications enabled', 'dialog.main.title': 'Future 2030', 'dialog.main.button.subscribe': 'Allow', 'dialog.main.button.unsubscribe': 'Unsubscribe' } }, promptOptions: { slidedown: { enabled: false } // disables the big top slide-down } }); });
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "dd1c388d-b9e8-41b3-b904-e811dbcfae4c",
+      notifyButton: {
+        enable: true,
+        position: "bottom-right",
+        size: "medium",
+        theme: "default",
+        showCredit: false
+      },
+      promptOptions: {
+        slidedown: { enabled: false }
+      }
+    });
+  });
 </script> </head>
 <body>
 <div class="article">
